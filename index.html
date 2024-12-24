@@ -3,138 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Animated Blog</title>
-
-    <!-- AdSense Snippet -->
+    <title>File Converter Pro</title>
+    <link rel="stylesheet" href="style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5147037258558762"
         crossorigin="anonymous"></script>
-
-    <!-- Font Awesome CDN (free version) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 </head>
 <body>
-
-  <!-- Header Section -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">MyBlog</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#newsletter">Newsletter</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="theme-toggle">🌙</button></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- AdSense Banner Ad Below Navbar -->
-  <div class="adsense-container">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5147037258558762"
-         data-ad-slot="1234567890"
-         data-ad-format="auto"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-
-  <!-- Landing Section -->
-  <section id="home" class="landing">
-    <h1>Welcome to My Blog</h1>
-    <p>Sharing thoughts, stories, and ideas!</p>
-    <a href="#blogs" class="btn">Explore Blogs</a>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blogs" class="blogs">
-    <h2>Latest Blog Posts</h2>
-
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search blog posts..." />
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <h1>Welcome to <span>File Converter Pro</span></h1>
     </div>
 
-    <div class="blog-container">
-      <div class="blog-card">
-        <img src="images/blog1.jpg" alt="Blog 1">
-        <h3>Blog Title 1</h3>
-        <p class="short-desc">A short description of the blog post...</p>
-        <p class="full-desc" style="display: none;">This is the full description of Blog 1. It contains more detailed information about the blog post.</p>
-        <button class="read-more-btn">Read More</button>
-        <div class="social-buttons">
-          <a href="#" class="btn-social">Facebook</a>
-          <a href="#" class="btn-social">Twitter</a>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">FileConverterPro</div>
+            <ul>
+                <li><a href="#" id="homeBtn">Home</a></li>
+                <li><a href="#" id="aboutBtn">About</a></li>
+                <li><a href="#" id="contactBtn">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Ad Banner Top -->
+    <div class="ad-banner ad-top">
+        <!-- AdSense Code Here -->
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section id="home-section">
+            <h1>Effortless File Conversion</h1>
+            <button id="conversionModalBtn" class="fancy-btn">Choose Conversion Type</button>
+        </section>
+
+        <!-- Conversion Modal -->
+        <div id="conversion-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Select Conversion Type</h2>
+                <div class="modal-groups">
+                    <div class="modal-group">
+                        <h3>PDF Conversions</h3>
+                        <button class="modal-btn" onclick="selectConverter('jpegToPdf')">JPEG to PDF</button>
+                        <button class="modal-btn" onclick="selectConverter('pngToPdf')">PNG to PDF</button>
+                        <button class="modal-btn" onclick="selectConverter('pdfToDocx')">PDF to DOCX</button>
+                    </div>
+                    <div class="modal-group">
+                        <h3>Other Conversions</h3>
+                        <button class="modal-btn" onclick="selectConverter('csvToXlsx')">CSV to XLSX</button>
+                        <button class="modal-btn" onclick="selectConverter('mp4ToMp3')">MP4 to MP3</button>
+                        <button class="modal-btn" onclick="selectConverter('htmlToPdf')">HTML to PDF</button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- AdSense In-Article Ad Between Sections -->
-  <div class="adsense-container">
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center;"
-         data-ad-client="ca-pub-5147037258558762"
-         data-ad-slot="1234567891"
-         data-ad-format="fluid"
-         data-ad-layout="in-article"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
+        <!-- Conversion Section -->
+        <section id="conversion-section" class="hidden">
+            <h2 id="conversion-title"></h2>
+            <div class="conversion-container">
+                <input type="file" id="fileInput">
+                <div id="preview-container" class="hidden">
+                    <h3>File Preview:</h3>
+                    <img id="imagePreview" class="hidden" src="" alt="Preview">
+                    <p id="filePreview"></p>
+                </div>
+                <button id="convertBtn" class="fancy-btn">Convert File</button>
+                <p id="conversionStatus"></p>
+                <a id="downloadLink" class="hidden" download>Download Converted File</a>
+            </div>
+        </section>
+    </main>
 
-  <!-- Amazon Affiliate Section -->
-  <section id="amazon-merchandise" class="amazon-merchandise">
-    <h2>Recommended Merchandise</h2>
-    <p>Check out these awesome products on Amazon!</p>
-    
-    <!-- Product 1 -->
-    <div class="product-card">
-      <img src="images/product1.jpg" alt="Product 1">
-      <h3>Product 1 Name</h3>
-      <p>Brief description of the product.</p>
-      <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="btn">Buy on Amazon</a>
+    <!-- Ad Banner Bottom -->
+    <div class="ad-banner ad-bottom">
+        <!-- AdSense Code Here -->
     </div>
 
-    <!-- Product 2 -->
-    <div class="product-card">
-      <img src="images/product2.jpg" alt="Product 2">
-      <h3>Product 2 Name</h3>
-      <p>Brief description of the product.</p>
-      <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="btn">Buy on Amazon</a>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 FileConverterPro. All rights reserved.</p>
+    </footer>
 
-    <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/product3.jpg" alt="Product 3">
-      <h3>Product 3 Name</h3>
-      <p>Brief description of the product.</p>
-      <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="btn">Buy on Amazon</a>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section id="newsletter" class="newsletter">
-    <h2>Subscribe to Our Newsletter</h2>
-    <p>Stay updated with the latest blog posts!</p>
-    <form>
-      <input type="email" id="newsletter-input" placeholder="Enter your email" required />
-      <button type="submit" class="btn">Subscribe</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 My Animated Blog | All Rights Reserved</p>
-  </footer>
-
-  <!-- Your Custom JS -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
