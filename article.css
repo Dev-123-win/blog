@@ -1,0 +1,133 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+article {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.article-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.article-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: rgb(27, 32, 80);
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 15px;
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.specs-table th, .specs-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    background-color: #f9f9f9;
+}
+
+.specs-table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.read-more {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #0056b3;
+}
+
+.read-more:active {
+    transform: translateY(2px);
+}
+
+.article-image img:hover {
+    transform: scale(1.1);
+}
+
+header:hover {
+    background-color: #444;
+}

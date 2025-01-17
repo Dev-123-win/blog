@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+  color: #333;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+  color: #007BFF;
+}
+
+header .nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  background: url('hero-image.jpg') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+}
+
+/* Blog Posts Section */
+.blog-posts {
+  padding: 2rem 0;
+}
+
+.blog-posts .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.post {
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+}
+
+.post-content {
+  padding: 1rem;
+}
+
+.post-content h3 {
+  margin: 0 0 10px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007BFF;
+  transition: color 0.3s;
+}
+
+.read-more:hover {
+  color: #0056b3;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  header nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #333;
+      width: 100%;
+  }
+
+  header nav ul.show {
+      display: flex;
+  }
+
+  header .nav-toggle {
+      display: block;
+  }
+
+  .hero-content h2 {
+      font-size: 2rem;
+  }
+
+  .hero-content p {
+      font-size: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
